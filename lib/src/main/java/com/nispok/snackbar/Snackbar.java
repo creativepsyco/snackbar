@@ -11,11 +11,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
@@ -48,24 +44,43 @@ public class Snackbar extends SnackbarLayout {
     }
 
     private SnackbarType mType = SnackbarType.SINGLE_LINE;
+
     private SnackbarDuration mDuration = SnackbarDuration.LENGTH_LONG;
+
     private CharSequence mText;
+
     private int mColor = -1;
+
     private int mTextColor = -1;
+
     private int mOffset;
+
     private long mSnackbarStart;
+
     private long mSnackbarFinish;
+
     private long mTimeRemaining = -1;
+
     private CharSequence mActionLabel;
+
     private int mActionColor = -1;
+
     private boolean mAnimated = true;
+
     private long mCustomDuration = -1;
+
     private ActionClickListener mActionClickListener;
+
     private boolean mShouldDismissOnActionClicked = true;
+
     private EventListener mEventListener;
+
     private boolean mIsShowing = false;
+
     private boolean mCanSwipeToDismiss = true;
+
     private boolean mIsDismissing = false;
+
     private Runnable mDismissRunnable = new Runnable() {
         @Override
         public void run() {
@@ -339,6 +354,10 @@ public class Snackbar extends SnackbarLayout {
             layout.setBackgroundColor(mColor);
             params = new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+            int marginOffset = res.getDimensionPixelSize(R.dimen.sb__offset_margin);
+            params.leftMargin = marginOffset;
+            params.rightMargin = marginOffset;
+            params.bottomMargin = marginOffset;
         } else {
             // Tablet/desktop
             mType = SnackbarType.SINGLE_LINE; // Force single-line

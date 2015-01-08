@@ -7,4 +7,5 @@
     <dimen name="sb__text_padding_top">14dp</dimen>
     <dimen name="sb__text_padding_right">24dp</dimen>
     <dimen name="sb__text_size">14sp</dimen>
+    <dimen name="sb__offset_margin">14dp</dimen>
 </resources>
